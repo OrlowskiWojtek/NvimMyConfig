@@ -33,9 +33,21 @@ return {
 					end
 				end,
 			})
-			lspconfig.clangd.setup({
-				capabilities = capabilities,
-			})
+      lspconfig.clangd.setup({
+        capabilities = capabilities,
+        filetypes = { "h", "c", "cpp", "cc", "objc", "objcpp"},
+        cmd = {"clangd", "--background-index"},
+        single_file_support = true,
+        root_dir = lspconfig.util.root_pattern(
+          '.clangd',
+          '.clang-tidy',
+          '.clang-format',
+          'compile_commands.json',
+          'compile_flags.txt',
+          'configure.ac',
+          '.git'
+        )
+      })
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
