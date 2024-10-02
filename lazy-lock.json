@@ -24,5 +24,6 @@
   "trouble.nvim": { "branch": "main", "commit": "e5d0e04121c662ce29190a57dd03655d43c59d44" },
   "vim-commentary": { "branch": "master", "commit": "c4b8f52cbb7142ec239494e5a2c4a512f92c4d07" },
   "vim-slime": { "branch": "main", "commit": "ca59df2570e1a12f9ddfa90b6118df4d87453fcd" },
-  "vim-vsnip": { "branch": "master", "commit": "02a8e79295c9733434aab4e0e2b8c4b7cea9f3a9" }
+  "vim-vsnip": { "branch": "master", "commit": "02a8e79295c9733434aab4e0e2b8c4b7cea9f3a9" },
+  "vimtex": { "branch": "master", "commit": "b9cc11536a4e726c58c4776e9bcecff26fc454cb" }
 }
