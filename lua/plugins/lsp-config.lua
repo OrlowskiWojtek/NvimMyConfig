@@ -23,16 +23,16 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.julials.setup({
-				capabilities = capabilities,
-				on_new_config = function(new_config, _)
-					local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
-					if require("lspconfig").util.path.is_file(julia) then
-						-- vim.notify("Hello!")
-						new_config.cmd[1] = julia
-					end
-				end,
-			})
+--			lspconfig.julials.setup({
+--				capabilities = capabilities,
+--				on_new_config = function(new_config, _)
+--					local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
+--					if require("lspconfig").util.path.is_file(julia) then
+--						--vim.notify("Hello!")
+--						new_config.cmd[1] = julia
+--					end
+--				end,
+--			})
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
 				filetypes = { "h", "c", "cpp", "cc", "objc", "objcpp" },
@@ -48,14 +48,20 @@ return {
 					".git"
 				),
 			})
-			lspconfig.tsserver.setup({
-                filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-                cmd = { "typescript-language-server", "--stdio" },
+			lspconfig.ts_ls.setup({
+				filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+				cmd = { "typescript-language-server", "--stdio" },
 			})
 
-            lspconfig.tailwindcss.setup{}
+			lspconfig.tailwindcss.setup({})
 
-            lspconfig.texlab.setup{}
+			lspconfig.texlab.setup({})
+
+			lspconfig.pyright.setup({})
+
+			lspconfig.cmake.setup({
+				filetypes = { "cmake", "CMakeLists.txt" },
+			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
